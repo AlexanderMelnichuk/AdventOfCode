@@ -17,19 +17,14 @@ public class ElvenCount {
 
         // Count
         int counter = inputNumbers.length;
-        int lastCounter = 0;
         int nextNumber = 0;
-        boolean existed;
         while (counter < n) {
-            existed = spoken.containsKey(lastNumber);
-            if (!existed) {
-                spoken.put(lastNumber, counter);
-                nextNumber = 0;
+            if (spoken.containsKey(lastNumber)) {
+                nextNumber = counter - spoken.get(lastNumber);
             } else {
-                lastCounter = spoken.get(lastNumber);
-                nextNumber = counter - lastCounter;
-                spoken.put(lastNumber, counter);
+                nextNumber = 0;
             }
+            spoken.put(lastNumber, counter);
             counter++;
             lastNumber = nextNumber;
         }
