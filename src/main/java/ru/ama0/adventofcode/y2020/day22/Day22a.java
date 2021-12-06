@@ -10,7 +10,7 @@ import java.util.List;
 public class Day22a {
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day22.txt");
+        List<String> lines = Io.readLines("/2020/day22.txt");
 
         int lineNumber = 0;
         while (!lines.get(lineNumber++).startsWith("Player ")) {

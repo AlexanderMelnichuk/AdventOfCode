@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class CubeReaderTest {
     @Test
     void fromFile_day17test() throws Exception {
-        Cube cube = CubeReader.fromFile("/day17-test.txt");
+        Cube cube = CubeReader.fromFile("/2020/day17-test.txt");
 
         System.out.println(cube);
     }

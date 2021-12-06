@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Day01 {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day01.txt");
+        List<String> lines = Io.readLines("/2020/day01.txt");
         Set<Integer> set = lines.stream()
                 .map(Integer::parseInt)
                 .collect(Collectors.toSet());

@@ -12,7 +12,7 @@ import java.util.Set;
 public class Day16a {
     public static void main(String[] args) throws IOException {
         DataHolder dataHolder = new DataHolder();
-        dataHolder.loadFrom("/day16.txt");
+        dataHolder.loadFrom("/2020/day16.txt");
 
         // First question
         long errorRate = 0;

@@ -26,7 +26,7 @@ public class Day07 {
     private static final Set<Bag> reachable = new HashSet<>();
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day07.txt");
+        List<String> lines = Io.readLines("/2020/day07.txt");
         for(String line: lines) {
             val containerMatcher = BAG_NAME.matcher(line);
             if (containerMatcher.find()) {

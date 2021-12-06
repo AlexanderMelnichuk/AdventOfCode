@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Day24 {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day24.txt");
+        List<String> lines = Io.readLines("/2020/day24.txt");
         Set<Tile> flipped = new HashSet<>();
         int hit = 0;
         int miss = 0;

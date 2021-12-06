@@ -15,7 +15,7 @@ public class Day06 {
     public static final String GROUP_DELIMITER = LINE_DELIMITER + LINE_DELIMITER;
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day06.txt");
+        List<String> lines = Io.readLines("/2020/day06.txt");
         String[] sLines = String.join(LINE_DELIMITER, lines)
                 .split(GROUP_DELIMITER);
 

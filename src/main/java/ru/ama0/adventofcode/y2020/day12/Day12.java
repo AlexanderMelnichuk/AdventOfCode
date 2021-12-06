@@ -15,7 +15,7 @@ public class Day12 {
         ShipByDirection shipByDirection = new ShipByDirection();
         ShipByWaypoint shipByWaypoint = new ShipByWaypoint();
 
-        List<String> lines = Io.readLines("/day12.txt");
+        List<String> lines = Io.readLines("/2020/day12.txt");
         for (String line : lines) {
             Matcher matcher = COMMAND_PATTERN.matcher(line);
             if (!matcher.find()) {

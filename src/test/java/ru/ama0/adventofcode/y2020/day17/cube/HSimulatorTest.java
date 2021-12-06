@@ -7,7 +7,7 @@ import java.io.IOException;
 class HSimulatorTest {
     @Test
     void name() throws IOException {
-        Cube initCube = CubeReader.fromFile("/day17-test.txt");
+        Cube initCube = CubeReader.fromFile("/2020/day17-test.txt");
         HSimulator simulator = new HSimulator(new HStrategy());
 
         HCube cube = new HCube(initCube);

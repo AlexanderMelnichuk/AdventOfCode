@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Day17 {
     public static void main(String[] args) throws IOException {
-        Cube cube = CubeReader.fromFile("/day17.txt");
+        Cube cube = CubeReader.fromFile("/2020/day17.txt");
 
         Simulator simulator = new Simulator(new AdjacentStrategy());
 

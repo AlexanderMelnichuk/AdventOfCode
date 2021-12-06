@@ -11,7 +11,7 @@ public class Day14 {
     private static final Pattern MASK_PATTERN = Pattern.compile("^mask = (?<mask>[01X]{36})$");
     private static final Pattern SET_PATTERN = Pattern.compile("^mem\\[(?<address>\\d+)] = (?<value>\\d+)$");
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day14.txt");
+        List<String> lines = Io.readLines("/2020/day14.txt");
 
         Processor processor = new Processor();
         long maxCountX = 0;

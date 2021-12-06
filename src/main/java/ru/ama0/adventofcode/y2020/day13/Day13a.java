@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Day13a {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day13.txt");
+        List<String> lines = Io.readLines("/2020/day13.txt");
         int earliest = Integer.parseInt(lines.get(0));
         Set<Integer> numbers = Arrays.stream(lines.get(1).split(","))
                 .filter(number -> !"x".equals(number))

@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class Day02 {
     private static final Pattern PATTERN = Pattern.compile("(?<from>\\d+)-(?<to>\\d+) (?<character>.): (?<string>.*)");
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day02.txt");
+        List<String> lines = Io.readLines("/2020/day02.txt");
         int validCountFirst = 0;
         int validCountSecond = 0;
         for(String line: lines) {

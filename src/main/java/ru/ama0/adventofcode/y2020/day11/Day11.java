@@ -15,7 +15,7 @@ import static ru.ama0.adventofcode.y2020.day11.Constants.OCCUPIED;
 public class Day11 {
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day11.txt");
+        List<String> lines = Io.readLines("/2020/day11.txt");
         int columnsCount = lines.get(0).length();
         int rowsCount = lines.size();
 

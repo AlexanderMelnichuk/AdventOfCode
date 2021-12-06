@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Day03 {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day03.txt");
+        List<String> lines = Io.readLines("/2020/day03.txt");
 
         long trees5 = getTrees(lines, 1, 2);
 

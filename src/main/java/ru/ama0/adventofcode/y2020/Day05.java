@@ -11,7 +11,7 @@ public class Day05 {
     public static final int SEATS = 1024;
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day05.txt");
+        List<String> lines = Io.readLines("/2020/day05.txt");
         BitSet bitSet = new BitSet(SEATS);
         bitSet.clear();
         int max = 0;

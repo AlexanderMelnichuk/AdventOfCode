@@ -9,7 +9,7 @@ public class Day25a {
     private static final long DIVISOR = 20201227;
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day25.txt");
+        List<String> lines = Io.readLines("/2020/day25.txt");
         long cardPk = Long.parseLong(lines.get(0));
         long doorPk = Long.parseLong(lines.get(1));
 

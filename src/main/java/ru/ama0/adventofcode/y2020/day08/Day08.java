@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Day08 {
     public static void main(String[] args) throws IOException {
         Map<Integer, Command> mem = new TreeMap<>();
-        List<String> lines = Io.readLines("/day08.txt");
+        List<String> lines = Io.readLines("/2020/day08.txt");
         for (int address = 0; address < lines.size(); address++) {
             mem.put(address, Command.of(address, lines.get(address)));
         }

@@ -8,7 +8,7 @@ class SimulatorTest {
 
     @Test
     void simulate_day17test() throws IOException {
-        Cube cube = CubeReader.fromFile("/day17-test.txt");
+        Cube cube = CubeReader.fromFile("/2020/day17-test.txt");
         Simulator simulator = new Simulator(new AdjacentStrategy());
 
         Cube next = cube;

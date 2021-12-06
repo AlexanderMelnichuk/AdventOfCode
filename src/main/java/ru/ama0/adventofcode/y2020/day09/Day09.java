@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Day09 {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day09.txt");
+        List<String> lines = Io.readLines("/2020/day09.txt");
         Long[] numbers = lines.stream().map(Long::parseLong).toArray(Long[]::new);
         int preambleLength = 25;
         List<List<Long>> sums = new LinkedList<>();

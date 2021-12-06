@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class Day10 {
     public static void main(String[] args) throws Exception {
 
-        List<String> lines = Io.readLines("/day10.txt");
+        List<String> lines = Io.readLines("/2020/day10.txt");
         List<Long> adapters = lines
                 .stream()
                 .filter(s -> !Strings.isNullOrEmpty(s))

@@ -27,7 +27,7 @@ public class Day04 {
 
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Io.readLines("/day04.txt");
+        List<String> lines = Io.readLines("/2020/day04.txt");
         int validPassports1 = 0;
         int validPassports2 = 0;
         Map<String, String> pairs = new HashMap<>();

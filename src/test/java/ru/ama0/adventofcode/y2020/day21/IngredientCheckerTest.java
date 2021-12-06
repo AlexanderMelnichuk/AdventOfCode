@@ -11,7 +11,7 @@ class IngredientCheckerTest {
 
     @Test
     void check() throws IOException {
-        int count = ingredientChecker.calculate("/day21-test.txt");
+        int count = ingredientChecker.calculate("/2020/day21-test.txt");
         String str = ingredientChecker.cleanTranslations();
 
         assertEquals(5, count);
