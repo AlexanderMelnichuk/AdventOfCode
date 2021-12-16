@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        var repository = new InputDataRepositoryImpl("/2021/input031.txt");
+        var repository = new InputDataRepositoryImpl("/2021/input03.txt");
         repository.init();
 
         var powerConsumptionCalculator = new PowerConsumptionCalculator(repository);

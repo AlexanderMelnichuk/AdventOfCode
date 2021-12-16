@@ -1,7 +1,7 @@
 package ru.ama0.adventofcode.y2021.day04;
 
-import ru.ama0.adventofcode.y2021.day04.application.WinnerCalculator;
 import ru.ama0.adventofcode.y2021.day04.application.LoserCalculator;
+import ru.ama0.adventofcode.y2021.day04.application.WinnerCalculator;
 import ru.ama0.adventofcode.y2021.day04.infrastructure.InputDataRepositoryImpl;
 
 import java.io.IOException;

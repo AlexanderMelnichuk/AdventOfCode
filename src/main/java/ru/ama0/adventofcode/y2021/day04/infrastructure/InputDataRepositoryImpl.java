@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class InputDataRepositoryImpl implements InputDataRepository {
 
     private static final int BOARD_SIZE = 5;
-    private static final String INPUT_FILE_NAME = "/2021/input041.txt";
+    private static final String INPUT_FILE_NAME = "/2021/input04.txt";
 
     private List<Integer> numbers;
     private Collection<Board> boards;
