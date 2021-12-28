@@ -1,5 +1,6 @@
 package ru.ama0.adventofcode.y2021.day08;
 
+import ru.ama0.adventofcode.y2021.day08.application.DigitSummarizer;
 import ru.ama0.adventofcode.y2021.day08.application.Digits1478Counter;
 import ru.ama0.adventofcode.y2021.day08.infrastructure.DisplayDigitsRepositoryImpl;
 
@@ -15,7 +16,7 @@ public class Main {
         var digits1478Count = digits1478Counter.execute();
         System.out.println(digits1478Count);
 
-
-
+        var digitSummarizer = new DigitSummarizer(repository);
+        System.out.println(digitSummarizer.execute());
     }
 }

@@ -1,16 +1,19 @@
 package ru.ama0.adventofcode.y2021.day08.domain;
 
 import com.google.common.collect.Sets;
+import lombok.Getter;
 
 import javax.annotation.Nonnull;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class DigitSectionMapper {
+@Getter
+public class DigitDecoder {
 
     /**
      * _111
@@ -36,7 +39,7 @@ public class DigitSectionMapper {
 
     static final Map<Integer, Digit> DIGIT_BY_NUMBER;
     static final Map<Set<Integer>, Digit> DIGIT_BY_SECTIONS;
-    static final Map<Integer, Set<Digit>> POSSIBLE_DIGITS_BY_LENGTH;
+    public static final Map<Integer, Set<Digit>> POSSIBLE_DIGITS_BY_LENGTH;
 
     static {
         DIGIT_BY_NUMBER = DIGIT_DEFINITIONS.stream()
@@ -49,12 +52,10 @@ public class DigitSectionMapper {
                         Collectors.toCollection(HashSet::new)));
     }
 
-    public Digit digitsMatch(@Nonnull EncodedDigit encodedDigit) {
-        return null;
-    }
+    private final Map<Integer, Character> sectionToCharacterMap = new HashMap<>(7);
+    private final Map<Character, Integer> characterToSectionMap = new HashMap<>(7);
 
-    @Nonnull
-    private SectionCharacterMap sectionsMatch(@Nonnull Collection<String> encodedDigits) {
+    public DigitDecoder(@Nonnull Collection<String> encodedDigits) {
         var encodedDigitsByLength = encodedDigits.stream()
                 .map(EncodedDigit::new)
                 .collect(Collectors.groupingBy(
@@ -68,28 +69,26 @@ public class DigitSectionMapper {
         var encodedDigits235 = encodedDigitsByLength.get(5);
         var encodedDigits690 = encodedDigitsByLength.get(6);
 
-        var map = new SectionCharacterMap();
-
         // Section 1 letter
         var section1Character =
                 Sets.difference(encodedDigit7.getCharacters(), encodedDigit1.getCharacters())
                         .iterator().next();
-        map.match(section1Character, 1);
+        match(section1Character, 1);
 
         // Section 3 and 6 letters
         var encodedDigit1charactersIterator = encodedDigit1.getCharacters().iterator();
         var digit1CharacterA = encodedDigit1charactersIterator.next();
         var digit1CharacterB = encodedDigit1charactersIterator.next();
         var allExceptDigit1CharacterACharacters =
-                Sets.difference(encodedDigit7.getCharacters(), Set.of(digit1CharacterA));
+                Sets.difference(encodedDigit8.getCharacters(), Set.of(digit1CharacterA));
         if (encodedDigits690.stream()
                 .map(EncodedDigit::getCharacters)
                 .anyMatch(allExceptDigit1CharacterACharacters::containsAll)) {
-            map.match(digit1CharacterA, 3);
-            map.match(digit1CharacterB, 6);
+            match(digit1CharacterA, 3);
+            match(digit1CharacterB, 6);
         } else {
-            map.match(digit1CharacterA, 6);
-            map.match(digit1CharacterB, 3);
+            match(digit1CharacterA, 6);
+            match(digit1CharacterB, 3);
         }
 
         // Section 5 and 7 letters
@@ -105,33 +104,44 @@ public class DigitSectionMapper {
         if (encodedDigits690.stream()
                 .map(EncodedDigit::getCharacters)
                 .anyMatch(allExceptLowerLeftSectionsCharacterACharacters::containsAll)) {
-            map.match(lowerLeftSectionsCharacterA, 5);
-            map.match(lowerLeftSectionsCharacterB, 7);
+            match(lowerLeftSectionsCharacterA, 5);
+            match(lowerLeftSectionsCharacterB, 7);
         } else {
-            map.match(lowerLeftSectionsCharacterA, 7);
-            map.match(lowerLeftSectionsCharacterB, 5);
+            match(lowerLeftSectionsCharacterA, 7);
+            match(lowerLeftSectionsCharacterB, 5);
         }
 
         // Section 4
         var digit2ExceptSection4characters = Set.of(
-                map.getSectionToCharacterMap().get(1),
-                map.getSectionToCharacterMap().get(3),
-                map.getSectionToCharacterMap().get(5),
-                map.getSectionToCharacterMap().get(7));
+                sectionToCharacterMap.get(1),
+                sectionToCharacterMap.get(3),
+                sectionToCharacterMap.get(5),
+                sectionToCharacterMap.get(7));
         var section4Character = encodedDigits235.stream()
                 .map(encodedDigit -> Sets.difference(encodedDigit.getCharacters(), digit2ExceptSection4characters))
                 .filter(characters -> characters.size() == 1)
                 .findFirst().map(characters -> characters.iterator().next())
                 .orElseThrow(() -> new IllegalStateException("Algo error!"));
-        map.match(section4Character, 4);
+        match(section4Character, 4);
 
         // Section 2
         var section2Character = Sets.difference(encodedDigit4.getCharacters(),
-                Set.of(map.getSectionToCharacterMap().get(4), map.getSectionToCharacterMap().get(3),
-                        map.getSectionToCharacterMap().get(6)))
+                Set.of(sectionToCharacterMap.get(4), sectionToCharacterMap.get(3),
+                        sectionToCharacterMap.get(6)))
                 .iterator().next();
-        map.match(section2Character, 2);
-        return map;
+        match(section2Character, 2);
+    }
+
+    private void match(Character character, Integer section) {
+        sectionToCharacterMap.put(section, character);
+        characterToSectionMap.put(character, section);
+    }
+
+    public Digit decode(@Nonnull EncodedDigit encodedDigit) {
+        var sections = encodedDigit.getCharacters().stream()
+                .map(characterToSectionMap::get)
+                .collect(Collectors.toSet());
+        return DIGIT_BY_SECTIONS.get(sections);
     }
 
 }

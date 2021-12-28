@@ -11,9 +11,9 @@ public class EncodedDigit {
     String id;
     Set<Character> characters;
 
-    public EncodedDigit(String id) {
-        this.id = id;
-        characters = id.chars()
+    public EncodedDigit(String encodedCharacters) {
+        this.id = encodedCharacters;
+        characters = encodedCharacters.chars()
                 .collect(HashSet::new,
                         (set, charInt) -> set.add((char) charInt),
                         HashSet::addAll);
